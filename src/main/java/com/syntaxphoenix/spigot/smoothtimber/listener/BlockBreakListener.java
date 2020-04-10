@@ -25,11 +25,8 @@ public class BlockBreakListener implements Listener {
 
 	private final RandomNumberGenerator generator = NumberGeneratorType.MURMUR.create(System.currentTimeMillis() >> 3);
 
-	@EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
+	@EventHandler(priority = EventPriority.LOW)
 	public void onBlockBreak(BlockBreakEvent e) {
-		if (e.isCancelled()) {
-			return;
-		}
 		Player p = e.getPlayer();
 		if (CutterConfig.ON_SNEAK) {
 			if (!p.isSneaking()) {
